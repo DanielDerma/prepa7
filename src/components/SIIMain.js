@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../dashboard.css";
 
+import { FaPlusCircle } from "react-icons/fa";
+
 export class SIIMain extends Component {
   render() {
     return (
@@ -9,6 +11,7 @@ export class SIIMain extends Component {
           <div class="row">
             <Sidebar />
             <Db />
+            <Modal />
           </div>
         </div>
       </div>
@@ -122,107 +125,67 @@ function Db() {
               <td>layout</td>
             </tr>
             <tr>
-              <td>1,003</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>tabular</td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,004</td>
-              <td>text</td>
-              <td>random</td>
-              <td>layout</td>
-              <td>dashboard</td>
-            </tr>
-            <tr>
-              <td>1,005</td>
-              <td>dashboard</td>
-              <td>irrelevant</td>
-              <td>text</td>
-              <td>placeholder</td>
-            </tr>
-            <tr>
-              <td>1,006</td>
-              <td>dashboard</td>
-              <td>illustrative</td>
-              <td>rich</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,007</td>
-              <td>placeholder</td>
-              <td>tabular</td>
-              <td>information</td>
-              <td>irrelevant</td>
-            </tr>
-            <tr>
-              <td>1,008</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
-            </tr>
-            <tr>
-              <td>1,009</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
-            </tr>
-            <tr>
-              <td>1,010</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>tabular</td>
-            </tr>
-            <tr>
-              <td>1,011</td>
-              <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,012</td>
-              <td>text</td>
-              <td>placeholder</td>
-              <td>layout</td>
-              <td>dashboard</td>
-            </tr>
-            <tr>
-              <td>1,013</td>
-              <td>dashboard</td>
-              <td>irrelevant</td>
-              <td>text</td>
-              <td>visual</td>
-            </tr>
-            <tr>
-              <td>1,014</td>
-              <td>dashboard</td>
-              <td>illustrative</td>
-              <td>rich</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,015</td>
-              <td>random</td>
-              <td>tabular</td>
-              <td>information</td>
-              <td>text</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="table-active">
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
+                  <FaPlusCircle />
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
     </main>
+  );
+}
+
+function Modal() {
+  return (
+    <div
+      className="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="staticBackdropLabel">
+              Agregar Alumno Extra
+            </h5>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div className="modal-body">...</div>
+          <div className="modal-footer">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" className="btn btn-primary">
+              Understood
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
