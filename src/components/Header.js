@@ -45,7 +45,7 @@ export class Header extends Component {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Daniel
+                    Alonso
                   </button>
                   <ul className="dropdown-menu">
                     <li>

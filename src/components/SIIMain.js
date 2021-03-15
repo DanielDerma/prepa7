@@ -1,17 +1,81 @@
-import React, { Component } from "react";
+import React, { Component, useMemo } from "react";
+import { useDropzone } from "react-dropzone";
+import { Header } from "./Header";
+import { Db } from "./components/Db";
+// import Demo from './demo';
+
+// import Demo from './demo';
 import "../dashboard.css";
 
-import { FaPlusCircle } from "react-icons/fa";
+const baseStyle = {
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  padding: "20px",
+  borderWidth: 2,
+  borderRadius: 2,
+  borderColor: "#eeeeee",
+  borderStyle: "dashed",
+  backgroundColor: "#fafafa",
+  color: "#bdbdbd",
+  outline: "none",
+  transition: "border .24s ease-in-out",
+};
+
+const activeStyle = {
+  borderColor: "#2196f3",
+};
+
+const acceptStyle = {
+  borderColor: "#00e676",
+};
+
+const rejectStyle = {
+  borderColor: "#ff1744",
+};
+
+function StyledDropzone(props) {
+  const {
+    getRootProps,
+    getInputProps,
+    isDragActive,
+    isDragAccept,
+    isDragReject,
+  } = useDropzone({ accept: "image/*" });
+
+  const style = useMemo(
+    () => ({
+      ...baseStyle,
+      ...(isDragActive ? activeStyle : {}),
+      ...(isDragAccept ? acceptStyle : {}),
+      ...(isDragReject ? rejectStyle : {}),
+    }),
+    [isDragActive, isDragReject, isDragAccept]
+  );
+
+  return (
+    <div className="container">
+      <div {...getRootProps({ style })}>
+        <input {...getInputProps()} />
+        <p>
+          Arrartre o haga click a tus archivos csv o xlsx, tome encuenta las{" "}
+          <u>Especificaciones del archivo.</u>
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export class SIIMain extends Component {
   render() {
     return (
       <div>
-        <div class="container-fluid">
-          <div class="row">
+        <Header />
+        <div className="container-fluid">
+          <div className="row">
             <Sidebar />
-            <Db />
-            <Modal />
+            <Databaselayout />
           </div>
         </div>
       </div>
@@ -28,39 +92,41 @@ function Sidebar() {
       <div className="position-sticky pt-3">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">
-              <span data-feather="home"></span>
-              SII
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link " href="#1a">
               <span data-feather="file"></span>
-              Orders
+              Primer Semestre
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-              Products
+            <a className="nav-link " href="#">
+              <span data-feather="file"></span>
+              1b
+            </a>
+          </li>
+
+          <li className="nav-item">
+            <a className="nav-link " href="#">
+              <span data-feather="file"></span>
+              2a
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              <span data-feather="users"></span>
-              Customers
+            <a className="nav-link " href="#">
+              <span data-feather="file"></span>
+              2b
+            </a>
+          </li>
+
+          <li className="nav-item">
+            <a className="nav-link " href="#">
+              <span data-feather="file"></span>
+              3a
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrations
+            <a className="nav-link " href="#">
+              <span data-feather="file"></span>
+              3b
             </a>
           </li>
         </ul>
@@ -69,19 +135,34 @@ function Sidebar() {
   );
 }
 
-function Db() {
+function Databaselayout() {
   return (
     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div
         className="alert alert-warning alert-dismissible fade show"
         role="alert"
       >
-        <strong>SII</strong> Aqui es donde deberias subir y actualizar tu lista
-        de alumnos proporsionada por la{" "}
-        <a href="#" class="alert-link">
-          institucion
+        <strong>Especificaciones del archivo</strong> Los archivos tienen que
+        cumplir con:{" "}
+        <a href="#" className="alert-link">
+          ID
+        </a>{" "}
+        <a href="#" className="alert-link">
+          NC
+        </a>{" "}
+        <a href="#" className="alert-link">
+          Apellidos
+        </a>{" "}
+        <a href="#" className="alert-link">
+          Nombre
+        </a>{" "}
+        <a href="#" className="alert-link">
+          Grado
+        </a>{" "}
+        <a href="#" className="alert-link">
+          Grupo
         </a>
-        .
+        . En cada columna
         <button
           type="button"
           className="btn-close"
@@ -89,103 +170,9 @@ function Db() {
           aria-label="Close"
         ></button>
       </div>
-      <div
-        className="custom-file drag"
-        id="drop_zone"
-        ondrop="dropHandler(event);"
-        ondragover="dragOverHandler(event);"
-      >
-        <p>Arrastra y suelta un archivos .csv a esta zona ...</p>
-      </div>
-      <h2>Section title</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Header</th>
-              <th>Header</th>
-              <th>Header</th>
-              <th>Header</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="table-active">
-                <a
-                  href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                >
-                  <FaPlusCircle />
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <StyledDropzone />
+      <Db />
     </main>
-  );
-}
-
-function Modal() {
-  return (
-    <div
-      className="modal fade"
-      id="staticBackdrop"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id="staticBackdropLabel">
-              Agregar Alumno Extra
-            </h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div className="modal-body">...</div>
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" className="btn btn-primary">
-              Understood
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
