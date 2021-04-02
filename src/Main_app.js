@@ -1,6 +1,6 @@
-import { InfoMain } from "./components/InfoMain";
-import { DashMain } from "./components/DashMain";
-import { SIIMain } from "./components/SIIMain";
+import { InfoMain } from "./router/InfoMain";
+import { DashMain } from "./router/DashMain";
+import { SIIMain } from "./router/SIIMain";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 

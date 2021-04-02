@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { Header } from "./Header";
 import "../dashboard.css";
 
-import Chart from "./components/Chart";
+// import Example, { handleShow } from "../components/infoStepper/Modal";
+import Example, { handleShow } from "../components/Modal";
+
+import Chart from "../components/Chart";
 
 export class DashMain extends Component {
   render() {
@@ -44,15 +47,15 @@ function Data() {
       >
         <h1 className="h2">Grafica Alumnos -@Directores</h1>
         <div className="btn-toolbar mb-2 mb-md-0">
-          <div className="btn-group me-2">
-            <button
-              type="button"
-              className="btn btn-sm btn-outline-success active"
-            >
-              Public
+          <div className="dropdown me-2">
+            <Example name="Editar Vista" />
+          </div>
+          <div class="btn-group me-2">
+            <button type="button" className="btn btn-sm btn-outline-secondary">
+              Share
             </button>
             <button type="button" className="btn btn-sm btn-outline-secondary">
-              Private
+              Export
             </button>
           </div>
         </div>
@@ -61,6 +64,60 @@ function Data() {
     </>
   );
 }
+
+function RegistroCiclos() {
+  return (
+    <>
+      <li>
+        <a className="dropdown-item" href="#">
+          <input type="checkbox" id="cbox1" value="first_checkbox" />{" "}
+        </a>
+      </li>
+    </>
+  );
+}
+
+// function DBList() {
+//   return (
+//     <>
+//       {dataEli.map((xlsx) => {
+//         const { ID } = xlsx;
+//         return (
+//           // each rows
+//           <tr>
+//             <td>{ID}</td>
+//           </tr>
+//         );
+//       })}
+//     </>
+//   );
+// }
+
+let registro = {
+  ciclos: [
+    "Periodo 1",
+    "Periodo 2",
+    "Periodo 3",
+    "Periodo 4",
+    "Periodo 5",
+    "Periodo 6",
+    "Periodo 7",
+    "Periodo 8",
+    "Periodo 9",
+  ],
+  maestros: ["Eli", "Alonso", "Marquez"],
+  gradoGrupo: [
+    "Periodo 1",
+    "Periodo 2",
+    "Periodo 3",
+    "Periodo 4",
+    "Periodo 5",
+    "Periodo 6",
+    "Periodo 7",
+    "Periodo 8",
+    "Periodo 9",
+  ],
+};
 
 function Sidebar() {
   return (

@@ -107,6 +107,10 @@ body {
   margin: 0 auto;
   text-align: center;
 }
+.container {
+  padding: 0;
+}
 .canvas-container {
   height: 70vh;
+  width: 100%;
 }

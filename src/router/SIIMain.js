@@ -1,10 +1,8 @@
 import React, { Component, useMemo } from "react";
 import { useDropzone } from "react-dropzone";
 import { Header } from "./Header";
-import { Db } from "./components/Db";
-// import Demo from './demo';
+import { Db } from "./../components/Db";
 
-// import Demo from './demo';
 import "../dashboard.css";
 
 const baseStyle = {
@@ -12,7 +10,7 @@ const baseStyle = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: "20px",
+  padding: "24px 0 24px 0",
   borderWidth: 2,
   borderRadius: 2,
   borderColor: "#eeeeee",
@@ -145,24 +143,37 @@ function Databaselayout() {
         <strong>Especificaciones del archivo</strong> Los archivos tienen que
         cumplir con:{" "}
         <a href="#" className="alert-link">
-          ID
-        </a>{" "}
-        <a href="#" className="alert-link">
-          NC
-        </a>{" "}
-        <a href="#" className="alert-link">
           Apellidos
-        </a>{" "}
-        <a href="#" className="alert-link">
-          Nombre
-        </a>{" "}
-        <a href="#" className="alert-link">
-          Grado
-        </a>{" "}
-        <a href="#" className="alert-link">
-          Grupo
         </a>
-        . En cada columna
+        {", "}
+        <a href="#" className="alert-link">
+          Nombres
+        </a>
+        {", "}
+        <a href="#" className="alert-link">
+          P1
+        </a>
+        {", "}
+        <a href="#" className="alert-link">
+          P2
+        </a>
+        {", "}
+        <a href="#" className="alert-link">
+          P3
+        </a>
+        {", "}
+        <a href="#" className="alert-link">
+          P4
+        </a>
+        {", "}
+        <a href="#" className="alert-link">
+          P5
+        </a>
+        {", "}
+        <a href="#" className="alert-link">
+          P6
+        </a>
+        {", "}. En cada columna
         <button
           type="button"
           className="btn-close"
@@ -171,7 +182,9 @@ function Databaselayout() {
         ></button>
       </div>
       <StyledDropzone />
-      <Db />
+      <Db name="1A MATE" />
+      <Db name="1A FISICA" />
+      <Db name="1A ALEMAN" />
     </main>
   );
 }
