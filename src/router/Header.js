@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import User from "./../components/User";
+import { FaBars } from "react-icons/fa";
 
 export class Header extends Component {
   render() {
@@ -41,13 +42,28 @@ export class Header extends Component {
               <form>
                 <div className="btn-group dropstart">
                   <button
-                    type="button"
-                    className="btn btn-secondary dropdown-toggle"
+                    type="navbar-toggler"
+                    className="btn btn-outline-secondary dropdown-toggle "
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Alonso
+                    <span class="navbar-toggler-icon"></span>
+
+                    {/* <FaBars /> */}
                   </button>
+                  {/* <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    // data-bs-target="#navbarsExample07"
+                    // aria-controls="navbarsExample07"
+                    aria-expanded="false"
+
+                    // aria-label="Toggle navigation"
+                  > 
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  */}
                   <User />
                 </div>
               </form>

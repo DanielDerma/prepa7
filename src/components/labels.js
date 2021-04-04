@@ -27,7 +27,6 @@ export default function BasicTextFields({ nameL = "hi" }) {
             min: 0,
           },
         }}
-        // variant="3"
       />
     </form>
   );

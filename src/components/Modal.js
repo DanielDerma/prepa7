@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { FaPlusCircle } from "react-icons/fa";
-import Stepper from "./stepper";
+import Stepper from "./infoStepper/stepperEditView";
 
 // export default function Example(props) {
 export default function Example({ name = "Editar" }) {
@@ -25,8 +25,12 @@ export default function Example({ name = "Editar" }) {
 
   return (
     <>
-      {typeoff(name)}{" "}
-      {/* va a decidir si mostrar el boton con el texto'prosp name o el link con el font awosome */}
+      {
+        typeoff(
+          name
+        ) /* va a decidir si mostrar el boton con el texto'prosp name o el link con el font awosome */
+      }
+
       <Modal
         show={show}
         onHide={handleClose}

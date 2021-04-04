@@ -114,3 +114,8 @@ body {
   height: 70vh;
   width: 100%;
 }
+
+.dropstart .dropdown-toggle::before {
+  content: "";
+  display: none;
+}
