@@ -9,19 +9,28 @@ export default function Example({ name = "Editar" }) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const typeoff = (
-    type // type >> tyof es una props
-  ) =>
-    type === "Editar" ? (
-      <a href="#" onClick={handleShow}>
-        <FaPlusCircle />
-      </a>
-    ) : (
-      <Button variant="outline-secondary" onClick={handleShow}>
-        {name}
-      </Button>
-    );
+  // export default handleShow;
+  const typeoff = (type) => {
+    if (type == "Editar") {
+      return (
+        <a href="#" onClick={handleShow}>
+          <FaPlusCircle />
+        </a>
+      );
+    } else if (type == "") {
+      return (
+        <a href="#" onClick={handleShow}>
+          <FaPlusCircle />
+        </a>
+      );
+    } else {
+      return (
+        <Button variant="outline-secondary" onClick={handleShow}>
+          {name}
+        </Button>
+      );
+    }
+  };
 
   return (
     <>

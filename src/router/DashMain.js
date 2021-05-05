@@ -61,6 +61,7 @@ function Data() {
         </div>
       </div>
       <Chart />
+      <Example name="" />
     </>
   );
 }

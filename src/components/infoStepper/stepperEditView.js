@@ -1,11 +1,17 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepButton from "@material-ui/core/StepButton";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import {
+  Button,
+  Step,
+  StepLabel,
+  Stepper,
+  StepButton,
+  Typography,
+  makeStyles,
+} from "@material-ui/core";
+
 import Labels from "./../labels";
+import { Form, Formik } from "formik";
+import SwipeableViews from "react-swipeable-views";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -102,69 +108,102 @@ export default function HorizontalNonLinearStepper() {
     setCompleted({});
   };
 
+  const onSubmit = (values, formikBag) => {
+    const { setSubmitting } = formikBag;
+
+    if (!isLastStep()) {
+      setSubmitting(false);
+      handleNext();
+      return;
+    }
+
+    console.log(values);
+
+    setTimeout(() => {
+      setSubmitting(false);
+    }, 1000);
+  };
+
+  const initialValues = steps.reduce(
+    (values, { initialValues }) => ({
+      ...values,
+      ...initialValues,
+    }),
+    {}
+  );
+
+  const ActiveStep = steps[activeStep];
+  const validationSchema = ActiveStep.validationSchema;
+
   return (
-    <div className={classes.root}>
-      <Stepper nonLinear activeStep={activeStep}>
-        {steps.map((label, index) => (
-          <Step key={label}>
-            <StepButton
-              onClick={handleStep(index)}
-              completed={completed[index]}
-            >
-              {label}
-            </StepButton>
-          </Step>
-        ))}
-      </Stepper>
-      <div>
-        {allStepsCompleted() ? (
-          <div>
-            <Typography className={classes.instructions}>
-              All steps completed - you&apos;re finished
-            </Typography>
-            <Button onClick={handleReset}>Reset</Button>
-          </div>
-        ) : (
-          <div>
-            <Typography className={classes.instructions}>
-              {getStepContent(activeStep)}
-            </Typography>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+    >
+      <div className={classes.root}>
+        <Stepper nonLinear activeStep={activeStep}>
+          {steps.map((label, index) => (
+            <Step key={label}>
+              <StepButton
+                onClick={handleStep(index)}
+                completed={completed[index]}
+              >
+                {label}
+              </StepButton>
+            </Step>
+          ))}
+        </Stepper>
+        <div>
+          {allStepsCompleted() ? (
             <div>
-              <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                className={classes.button}
-              >
-                Back
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                className={classes.button}
-              >
-                Next
-              </Button>
-              {activeStep !== steps.length &&
-                (completed[activeStep] ? (
-                  <Typography variant="caption" className={classes.completed}>
-                    {activeStep + 1} Pasos Completados.
-                  </Typography>
-                ) : (
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleComplete}
-                  >
-                    {completedSteps() === totalSteps() - 1
-                      ? "Finish"
-                      : "Complete Step"}
-                  </Button>
-                ))}
+              <Typography className={classes.instructions}>
+                All steps completed - you&apos;re finished
+              </Typography>
+              <Button onClick={handleReset}>Reset</Button>
             </div>
-          </div>
-        )}
+          ) : (
+            <div>
+              <Typography className={classes.instructions}>
+                {getStepContent(activeStep)}
+              </Typography>
+              <div>
+                <Button
+                  disabled={activeStep === 0}
+                  onClick={handleBack}
+                  className={classes.button}
+                >
+                  Back
+                </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNext}
+                  className={classes.button}
+                >
+                  Next
+                </Button>
+                {activeStep !== steps.length &&
+                  (completed[activeStep] ? (
+                    <Typography variant="caption" className={classes.completed}>
+                      {activeStep + 1} Pasos Completados.
+                    </Typography>
+                  ) : (
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleComplete}
+                    >
+                      {completedSteps() === totalSteps() - 1
+                        ? "Finish"
+                        : "Complete Step"}
+                    </Button>
+                  ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </Formik>
   );
 }

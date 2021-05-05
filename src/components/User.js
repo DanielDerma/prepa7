@@ -43,6 +43,11 @@ function User() {
             SII
           </a>
         </li>
+        <li>
+          <a className="dropdown-item active" href="alum">
+            SII (alumno)
+          </a>
+        </li>
         {/* <!-- NO log  --> */}
         <li>
           <a

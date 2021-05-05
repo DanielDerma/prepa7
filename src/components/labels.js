@@ -31,3 +31,26 @@ export default function BasicTextFields({ nameL = "hi" }) {
     </form>
   );
 }
+
+// export default function AddStepper() {
+
+// }
+
+// case 0:
+//   return <Labels nameL="Apellidos" />; // apellidos y nombres
+// case 1:
+//   return <Labels nameL="Nombres" />; // apellidos y nombres
+// case 2:
+//   return <Labels nameL="Parcial 1" />; //p1
+// case 3:
+//   return <Labels nameL="Parcial 2" />; //p2
+// case 4:
+//   return <Labels nameL="Parcial 3" />; //p3
+// case 5:
+//   return <Labels nameL="Parcial 4" />; //p4
+// case 6:
+//   return <Labels nameL="Parcial 5" />; //p5
+// case 7:
+//   return <Labels nameL="Parcial 6" />; //p6
+// default:
+//   return "Unknown stepIndex";

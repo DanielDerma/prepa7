@@ -137,43 +137,13 @@ function Databaselayout() {
   return (
     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div
-        className="alert alert-warning alert-dismissible fade show"
+        className="alert alert-warning alert-dismissible fade show text-center"
         role="alert"
       >
-        <strong>Especificaciones del archivo</strong> Los archivos tienen que
-        cumplir con:{" "}
-        <a href="#" className="alert-link">
-          Apellidos
-        </a>
-        {", "}
-        <a href="#" className="alert-link">
-          Nombres
-        </a>
-        {", "}
-        <a href="#" className="alert-link">
-          P1
-        </a>
-        {", "}
-        <a href="#" className="alert-link">
-          P2
-        </a>
-        {", "}
-        <a href="#" className="alert-link">
-          P3
-        </a>
-        {", "}
-        <a href="#" className="alert-link">
-          P4
-        </a>
-        {", "}
-        <a href="#" className="alert-link">
-          P5
-        </a>
-        {", "}
-        <a href="#" className="alert-link">
-          P6
-        </a>
-        {", "}. En cada columna
+        <strong>
+          Suelta tu base de datos o da click para comenzar el seguimiento del
+          curso.
+        </strong>
         <button
           type="button"
           className="btn-close"
