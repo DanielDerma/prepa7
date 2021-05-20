@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import User from "./../components/User";
-import { FaBars } from "react-icons/fa";
+import { Auth0Provider, isAuthenticated } from "@auth0/auth0-react";
+import { BtnIn } from "../Admin/LogIn";
 
 export class Header extends Component {
   render() {
@@ -28,12 +29,14 @@ export class Header extends Component {
 
             <div className="collapse navbar-collapse" id="navbarsExample07">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                {/* <li className="nav-item">
-                  <a className="nav-link " href="dashboard">
-                    Panel
-                  </a>
-                </li>
-                <li className="nav-item">
+                <Auth0Provider
+                  domain="dev-qtg-buar.us.auth0.com"
+                  clientId="kzM5sdN82IZuzoTWxPJAHxMk4KQUtyOF"
+                  redirectUri={window.location.origin}
+                >
+                  <BtnIn />
+                </Auth0Provider>
+                {/*<li className="nav-item">
                   <a className="nav-link " href="sii">
                     SII
                   </a>

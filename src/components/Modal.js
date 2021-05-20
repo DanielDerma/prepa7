@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { FaPlusCircle } from "react-icons/fa";
-import Stepper from "./infoStepper/stepperEditView";
 
-// export default function Example(props) {
+import Add from "./Steppers/S_Add";
+
 export default function Example({ name = "Editar" }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  // export default handleShow;
+
   const typeoff = (type) => {
     if (type == "Editar") {
       return (
@@ -53,7 +53,7 @@ export default function Example({ name = "Editar" }) {
           <Modal.Title>{name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Stepper />
+          <Add />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

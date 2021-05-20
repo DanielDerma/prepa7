@@ -90,41 +90,21 @@ function Sidebar() {
       <div className="position-sticky pt-3">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <a className="nav-link " href="#1a">
+            <a className="nav-link " href="#mate">
               <span data-feather="file"></span>
-              Primer Semestre
+              1A MATE
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link " href="#">
+            <a className="nav-link " href="#fisica">
               <span data-feather="file"></span>
-              1b
+              1A FISICA
             </a>
-          </li>
-
+          </li> 
           <li className="nav-item">
-            <a className="nav-link " href="#">
+            <a className="nav-link " href="#aleman">
               <span data-feather="file"></span>
-              2a
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link " href="#">
-              <span data-feather="file"></span>
-              2b
-            </a>
-          </li>
-
-          <li className="nav-item">
-            <a className="nav-link " href="#">
-              <span data-feather="file"></span>
-              3a
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link " href="#">
-              <span data-feather="file"></span>
-              3b
+              1A ALEMAN
             </a>
           </li>
         </ul>
@@ -141,8 +121,7 @@ function Databaselayout() {
         role="alert"
       >
         <strong>
-          Suelta tu base de datos o da click para comenzar el seguimiento del
-          curso.
+          Suelta tu base de datos para comenzar el seguimiento del curso.
         </strong>
         <button
           type="button"
@@ -152,9 +131,9 @@ function Databaselayout() {
         ></button>
       </div>
       <StyledDropzone />
-      <Db name="1A MATE" />
-      <Db name="1A FISICA" />
-      <Db name="1A ALEMAN" />
+      <Db name="1A MATE" id="mate" />
+      <Db name="1A FISICA" id="fisica" />
+      <Db name="1A ALEMAN" id="aleman" />
     </main>
   );
 }
